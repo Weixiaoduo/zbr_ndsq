@@ -1,0 +1,116 @@
+/** forum::index **/
+/* 社区首页 */
+#scbar{ margin-bottom:5px;}
+.zbr_bbs{ padding-top:3px;}
+.zbr_bbs .fl{ border:0;}
+.zbr_bbs .bmw{ border:1px solid #CCCCCC; margin-bottom:8px; padding:1px;}
+.zbr_bbs .bm_h{ border:0;}
+
+/*
+.fl_g dl{ padding-left:8px; line-height:20px; }
+.fl_g dt{ font-size:14px;}
+.fl_g dd{ padding-right:10px;}
+.fl_g dl dd.zbr{ color:#666;}
+.fl_g dd.newPost img{ width:17px; height:10px; padding-top:2px;}
+.fl_icn_g img{ height:55px; width:55px;}
+*/
+
+.bm_h {background:#ECF3D2 url({STYLEIMGDIR}/titlebg.png) repeat-x scroll 0 0; border-top:0;}
+.bm_h h2{ color:#0B81BF}
+.zbrCount{ border:1px solid #CCCCCC; padding:1px;}
+.zbrCount p{ color:#0B81BF; font-weight:normal;}
+.zbrCount img{ vertical-align:-3px !important;}
+.zbrCount .zbr_icon{ vertical-align:-5px !important;}
+
+/* 论坛焦点多格切换 */
+.zbr_hot_title, .zbhot_t_right li a.zbr_hov, .zbhot_con_right dt, .zbhot_con_right dd{background:transparent url({STYLEIMGDIR}/zbr_forum_focus.png) no-repeat scroll 0 0;}
+.zbr_hot { margin:0 auto 8px; border:1px solid #dadada;}
+.zbr_hot_title { background-repeat:repeat-x;  border-bottom: 3px solid #E7001C; height: 30px; }
+.zbhot_t_left { display: inline; float: left; padding-left: 20px; margin-top: 5px; }
+.zbhot_t_left span { display:block; background:#F3001D; border: 1px solid #E7001C; color: #FFF; font-size: 12px; height: 24px; line-height: 24px; text-align: center; width: 70px; }
+.zbhot_t_right { display: inline; float: right; padding-right: 15px; padding-top: 5px; }
+.zbhot_t_right ul { list-style-type: none; margin: 0; padding: 0; }
+.zbhot_t_right li { display: inline; float: left; margin-left: 10px; }
+.zbhot_t_right li a { color: #035F9A; display: block; font-size: 12px; height: 24px; line-height: 24px; text-align: center; text-decoration: none; width: 65px; }
+.zbhot_t_right li a:hover { text-decoration: none; }
+.zbhot_t_right li a.zbr_hov { background-position:0 -34px; color: #fff; }
+.zbr_hot_con { padding:2px; overflow:hidden; height:222px;}
+.zbhot_con_left { width:330px; height:220px; float:left; overflow:hidden }
+.zbhot_con_right { width:64.8%; float:right;}
+.zbhot_con_right .zbr_hid { display:none; }
+.zbhot_con_right ul{ margin-top:7px;}
+.zbhot_con_right li { float:left; width:49%; font-size:14px; overflow:hidden; height:30px; line-height:30px; }
+.zbhot_con_right li a { color:#666; }
+.zbhot_con_right li span a { color:#197CBD; }
+.zbhot_con_right li span.spe { padding:0 2px 0 5px; font-weight:bold; }
+.zbhot_con_right .con_hot_spe{ width:185px; float:left; padding:7px 10px 0;}
+.zbhot_con_right dt { background-position:0 -61px; background-repeat:repeat-x; border: 1px solid #D3D3D3; color: #666; font-size: 12px; line-height: 18px; text-align: center; }
+.zbhot_con_right dd{ background-position:-54px -80px; padding-left:16px; height:20px; line-height:20px; border-bottom:1px dashed #069; font-size:12px;}
+.zbhot_con_right dd span{ float:right; color:#999;}
+.zbhot_con_right dd a{ color:#127BBF; text-decoration:none;}
+/** end **/
+
+/** forum::forumdisplay,group::forumdisplay **/
+/* 列表页 */
+.bml{ background:#fff url({STYLEIMGDIR}/display_theadbg.png) repeat-x 0 0;}
+.fl{  border:1px solid #E3E3E3; padding:1px; background:#fdfdfd;}
+.fl .bm_h{ background:url({STYLEIMGDIR}/titlebg_list.png) repeat-x 0 0;  border:0;}
+#f_pst .bm_h{ border-bottom:1px solid #E3E3E3;}
+/** end **/
+
+/** forum::viewthread,group::viewthread **/
+/* 帖子内容页 广播台*/
+.radioBox{ margin-bottom:8px; height:165px; position:relative; width:100%;}
+.zbr_radio, .zbr_radio .slidebar span{ background:transparent url({STYLEIMGDIR}/zbr_radio.png) no-repeat scroll 0 0;}
+.zbr_radio{ background-color:#fdfdfd;; border:5px solid #EDDFC5; height:140px; width:890px; padding:5px 10px 10px 50px; line-height:20px; font-size:12px; overflow:hidden; color:#444; position:absolute; top:0; left:0;}
+.zbr_radio .slidebar{ float:right; display:inline;}
+.zbr_radio .zbr_radio_cmt{float:left;}
+.zbr_radio .zbr_radio_cmt a{ margin-right:8px;}
+.zbr_radio .slidebar span{ display:inline-block; cursor:pointer; height:18px; width:6px; background-position:-15px -167px; font-size:5px; overflow:hidden; margin-right:5px;}
+.zbr_radio .slidebar span.on{ background-position:-4px -167px;}
+.zbr_radio .slidebar span.slidebarup, .zbr_radio .slidebar span.slidebardown{ width:23px; height:18px; margin:0;}
+.zbr_radio .slidebar span.slidebarup{ margin-left:4px; background-position:-50px -190px;}
+.zbr_radio .slidebar span.slidebardown{ background-position:-23px -190px;}
+.zbr_radio .slidebar span.slidebarup:hover{ background-position:0 -190px;}
+.zbr_radio .slidebar span.slidebardown:hover{ background-position:-73px -190px;}
+.zbr_radio .slideshow{ padding-top:5px;}
+.zbr_radio .slideshow li{ float:left; width:130px; text-align:center; overflow:hidden; padding:0 9px;}
+.zbr_radio .slideshow li a:hover{ text-decoration:none;}
+.zbr_radio .slideshow li img{ height:95px; width:130px; border:1px solid #CACACA; padding:1px;}
+
+.zbr_info{ background:#FAFAFA; border-left:3px solid #008001; line-height:1.6em; margin:6px 0; padding-left:6px; font-size:14px;}
+.zbr_info dt{ display:inline; font-weight:bold;}
+.zbr_info dd{ display:inline;}
+.zbr_info dd em{ color:#F60;}
+.zbr_info dd em a{ color:#39F}
+.t_f p{ margin-bottom:12px;}
+
+#bdshare{ margin:2em auto 0 !important; width:358px; float:none !important; height:22px;}
+span.bds_more, .bds_tools a{ padding-top:4px !important;}
+#bdshare strong{ float:left; padding-top:4px;}
+#p_btn{ padding:0 0 2em; margin-top:15px !important}
+/** end **/
+
+/** home**/
+/* 家园home */
+.appl { background:#F9F9F9; width:120px; border:1px solid #E3E3E3}
+.ct2_a, .ct3_a{ border:0;}
+.ct3_a .mn{ margin-left:15px;}
+#nv_home .ct3_a .sd .bm{ border: 1px solid {COMMONBORDER}; background: {WRAPBG}; margin:0 0 10px;}
+#nv_home .ct3_a .sd .bm_c{ padding:10px;}
+.dzhid{ display:none;}
+.xld dt a{ color:#07519A;}
+.bm_h {background:#ECF3D2 url({STYLEIMGDIR}/titlebg_list.png) repeat-x scroll 0 0; border:0; margin:1px 1px 0;}
+#space .bm_h { background-image:url({IMGDIR}/title.png); border-bottom:1px solid #DDD;}
+.tbn { margin:-7px -10px;}
+.tbn li.a { background: #CCC url({STYLEIMGDIR}/tbn.png) repeat-x 0 0; }
+.ct2_a .mn{ margin:0; padding:0; width:805px;}
+.ct2_a h1.mt{ display:block;font-size: 16px; padding: 10px 0;}
+/** end **/
+
+/** group **/
+/* 群组 */
+.bm_h, .bmw .bm_h, .fl .bm_h{background:#ECF3D2 url({STYLEIMGDIR}/titlebg_list.png) repeat-x scroll 0 0; border:0; margin:1px 1px 0;}
+.fl{ border:1px solid #E3E3E3}
+.bbs{ border:0px !important}
+/** end **/

@@ -1,0 +1,264 @@
+{eval	
+	$usernum = DB::result_first("SELECT count(*) FROM ".DB::table('common_member'));
+	$onlinenum = DB::result_first("SELECT count(*) FROM ".DB::table('common_session'));
+    $todaypost = DB::result_first("SELECT sum(todayposts) FROM ".DB::table('forum_forum')." WHERE status=1");
+     $zbr_mz = array();
+     $query = DB::query("SELECT doid,uid,username,message,dateline FROM ".DB::table('home_doing')." ORDER BY doid desc limit 4");while($item=DB::fetch($query))$zbr_mz[]=$item;
+}
+<!--{subtemplate common/header}-->
+<style id="diy_style" type="text/css"></style>
+<!--{subtemplate common/pubsearchform}-->
+<!--{ad/text/wp a_t}-->
+  <div class="wp">
+		<!--[diy=diy0]--><div id="diy0" class="area"></div><!--[/diy]-->
+	</div>
+<div id="public">
+    <div class="pub_extra"> 
+    <div class="zbr_focus">
+    	<!--[diy=zbr_com04]--><div id="zbr_com04" class="area"></div><!--[/diy]-->
+    </div>
+    <div class="lifeconsult"> <span class="bj_top"><span></span></span>
+      <h3>镇巴本地生活</h3>
+      <div class="contentkm"> 
+        <!--[diy=zbr_com05]-->
+        <div id="zbr_com05" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+      <span class="bj_bottom"><span></span></span> </div>
+  </div>
+  <div class="pub_main show_am" id="pub_main">
+    <div class="pub_main_am">
+      <ul class="version_am">
+        <li class="current"><span>今天版</span></li>
+        <li><a href='#' id="version_showpm" rel="show_pm">昨天版</a></li>
+      </ul>
+      <!--[diy=zbr_com02]-->
+      <div id="zbr_com02" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <div class="pub_main_pm">
+      <ul class="version_pm">
+        <li><a href='#' id="version_showam" rel="show_am">今天版</a></li>
+        <li class="current"><span>昨天版</span></li>
+      </ul>
+      <!--[diy=zbr_com03]-->
+      <div id="zbr_com03" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+  <div class="pub_slide">
+    <div class="pub_data_show">
+      <dl>
+        <dd id="exponential">
+          <p>今日发帖：<span>$todaypost</span>篇</p>
+          <p>会员总数：<span>$usernum</span>&nbsp;</p>
+        </dd>
+        <dd class="user_center">客服中心</dd>
+        <dd class="user_center_btn"><a class="user_center_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1666515529&site=qq&menu=yes"><img src="http://wpa.qq.com/pa?p=2:1666515529:45" title="点击这里给我发消息，状态彩色在线"></a><a href='mailto:admin@weixiaoduo.com' class="btn_b"title="点击给站长发邮件"></a> <a class="btn_c" title="点击给站长发站内信" href="home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_2&amp;touid=2&amp;pmid=0&amp;daterange=2" id="a_sendpm_2" onclick="showWindow('showMsgBox', this.href, 'get', 0)"></a> </dd>
+        <dd><a href="shortcut.php" target="_blank"><b>点击将本站保存在桌面</b></a></dd>
+      </dl>
+    </div>
+    <div class="pub_city_life">
+      <div class="pub_city_life_t">
+        <h4>镇巴便民信息</h4>
+      </div>
+      <div class="pub_city_life_con"> 
+        <!--[diy=zbr_com06]-->
+        <div id="zbr_com06" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+</div>
+  <div class="wp">
+		<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+	</div>
+<div id="zbr_link" style="MARGIN-bottom:9px;" class="datalazyload sqtk"> <span class="bj_top"><span></span></span>
+  <h3>镇巴图库</h3>
+  <div class="kmxbt"><a href="./home.php?mod=space&do=album" target="_blank" title="镇巴拍客-用光影记录每日印象">当你愿意记录，每个人都是生活的导演</a></div>
+  <div class="contentkm">
+    <div class="gidpicbox"> 
+      <!--[diy=zbr_com08]-->
+      <div id="zbr_com08" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <span class="bj_bottom"><span></span></span> </div>
+    <div class="wp">
+		<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+	</div>
+<div id="perspace" class="datalazyload">
+  <div class="main_repeat per_main zbr_cznd"> <span class="bj_top"><span></span></span>
+    <h3>吃在镇巴</h3>
+    <div class="kmxbt"></div>
+    <div class="contentkm chwl_h">
+      <div id="zbr_chwl"> 
+        <!--[diy=zbr_com16]-->
+        <div id="zbr_com16" class="area"></div>
+        <!--[/diy]-->
+        <div id="zbr_chwl-discount"> <strong><a href='./#' target="_blank">美食DIY</a></strong><span><a href='./#' target="_blank" title="更多菜谱">+MORE</a></span>
+          <div style="clear:both"></div>
+          <!--[diy=zbr_com17]-->
+          <div id="zbr_com17" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+      </div>
+      <div id="zbr_chwl-text"> 
+        <!--[diy=zbr_com18]-->
+        <div id="zbr_com18" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+  <div class="repeat_slide per_slides kmnew zbr_style"> <span class="bj_top"><span></span></span>
+    <h3>淘宝话费充值</h3>
+    <div class="dxs">
+      <div id="con_info_1" > <!--[diy=nd_info01]-->
+        <div id="nd_info01" class="area"></div>
+        <!--[/diy]--></div>
+      <div id="con_info_2" class="zbr_hid"><!--[diy=nd_info02]-->
+        <div id="nd_info02" class="area"></div>
+        <!--[/diy]--></div>
+      <div id="con_info_3" class="zbr_hid"><!--[diy=nd_info03]-->
+        <div id="nd_info03" class="area"></div>
+        <!--[/diy]--></div>
+    </div>
+    <span class="bj_bottom"><span></span></span> 
+    <!--[diy=zbr_com19]-->
+    <div id="zbr_com19" class="area"></div>
+    <!--[/diy]--> 
+  </div>
+</div>
+  <div class="wp">
+		<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+	</div>
+<div id="perspace" class="datalazyload">
+  <div class="main_repeat per_main zbr_zznd"> <span class="bj_top"><span></span></span>
+    <h3 id="jtqg">住在镇巴</h3>
+    <div class="kmxbt"></div>
+    <div class="contentkm" style="PADDING-top: 10px;PADDING-BOTTOM: 7px;">
+      <div id="zbr_jtqg"> 
+        <!--[diy=zbr_com22]-->
+        <div id="zbr_com22" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+      <div id="zbr_jtqg-topic"><strong><a href="./#" target="_blank">家装超市</a></strong><br >
+        <!--[diy=zbr_com23]-->
+        <div id="zbr_com23" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+  <div class="repeat_slide per_slides kmnew zbr_lis"> <span class="bj_top"><span></span></span>
+    <h3>亲子乐园</h3>
+    <div class="dxs"> 
+      <!--[diy=zbr_com24]-->
+      <div id="zbr_com24" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+</div>
+
+  <div class="wp">
+		<!--[diy=diy4]--><div id="diy4" class="area"></div><!--[/diy]-->
+	</div>
+<div id="perspace" class="datalazyload">
+  <div class="main_repeat per_main zbr_aznd"> <span class="bj_top"><span></span></span>
+    <h3>爱在镇巴</h3>
+    <div class="kmxbt"></div>
+    <div class="contentkm dssh_h" style="PADDING-BOTTOM: 0px;">
+      <div id="zbr_dssh"> 
+        <!--[diy=zbr_com25]-->
+        <div id="zbr_com25" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+      <div id="zbr_dssh-photo"> 
+        <!--[diy=zbr_com26]-->
+        <div id="zbr_com26" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+  <div class="repeat_slide per_slides kmnew zbr_lis zbr_jyzh"> 
+    <!--[diy=zbr_com27]-->
+    <div id="zbr_com27" class="area"></div>
+    <!--[/diy]--> 
+    <span class="bj_top"><span></span></span>
+    <h3>交友征婚</h3>
+    <div class="dxs"> 
+      <!--[diy=zbr_com28]-->
+      <div id="zbr_com28" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+</div>
+  <div class="wp">
+		<!--[diy=diy5]--><div id="diy5" class="area"></div><!--[/diy]-->
+	</div>
+
+<div id="perspace" class="datalazyload zbr_xznd">
+  <div class="main_repeat per_main zbr_xzxm"> <span class="bj_top"><span></span></span>
+    <h3>行在镇巴</h3>
+    <div class="kmxbt"></div>
+    <div class="contentkm" style="padding-bottom:6px">
+      <div id="zbr_xxyl"> 
+        <!--[diy=zbr_com13]-->
+        <div id="zbr_com13" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+      <div id="zbr_xxyl-t"> 
+        <!--[diy=zbr_com14]-->
+        <div id="zbr_com14" class="area"></div>
+        <!--[/diy]--> 
+      </div>
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+  <div class="repeat_slide per_slides kmnew zbr_cyh"> <span class="bj_top"><span></span></span>
+    <h3>热门兴趣组</h3>
+    <div class="dxs"> 
+      <!--[diy=zbr_com15]-->
+      <div id="zbr_com15" class="area"></div>
+      <!--[/diy]--> 
+    </div>
+    <span class="bj_bottom"><span></span></span> </div>
+</div>
+
+  </div>
+</div>
+  <div class="wp">
+		<!--[diy=diy6]--><div id="diy6" class="area"></div><!--[/diy]-->
+	</div>
+  <div class="wp">
+		<!--[diy=diy7]--><div id="diy7" class="area"></div><!--[/diy]-->
+	</div>
+<div id="zbr_link" style="MARGIN-bottom:9px;" class="datalazyload sqtk"> <span class="bj_top"><span></span></span>
+  <h3><a>便民电话 </a></h3>
+  <div class="kmxbt"><span style="color: #ff0000;"><strong><a title="镇巴门户网便民服务电话点击提交收录" href="./#" target="_blank"><span style="color: #ff0000;">点击免费提交收录</span></a></strong></span></div>
+    <!--[diy=bid=138]-->
+    <div id="bid=138" class="area"></div>
+    <!--[/diy]-->
+  <span class="bj_bottom"><span></span></span> </div>
+</div>
+
+  <div class="wp">
+		<!--[diy=diy8]--><div id="diy8" class="area"></div><!--[/diy]-->
+	</div>
+  <div class="wp">
+		<!--[diy=diy9]--><div id="diy9" class="area"></div><!--[/diy]-->
+	</div>
+  <div class="wp">
+		<!--[diy=diy10]--><div id="diy10" class="area"></div><!--[/diy]-->
+	</div>
+
+    <div style="clear:both"></div>
+  </div>
+  <span class="bj_bottom"><span></span></span> </div>
+</div>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe400bc08a78a8dce43a17116fc58ab81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!--{subtemplate common/footer}--> 

@@ -1,0 +1,171 @@
+	</div>
+<!--{if empty($topic) || ($topic[usefooter])}-->
+	<!--{eval $focusid = getfocus_rand($_G[basescript]);}-->
+	<!--{if $focusid !== null}-->
+		<!--{eval $focus = $_G['cache']['focus']['data'][$focusid];}-->
+		<!--{eval $focusnum = count($_G['setting']['focus'][$_G[basescript]]);}-->
+		<div class="focus" id="sitefocus">
+			<div class="bm">
+				<div class="bm_h cl">
+					<a href="javascript:;" onclick="setcookie('nofocus_$_G[basescript]', 1, $_G['cache']['focus']['cookie']*3600);$('sitefocus').style.display='none'" class="y" title="{lang close}">{lang close}</a>
+					<h2>
+						<!--{if $_G['cache']['focus']['title']}-->{$_G['cache']['focus']['title']}<!--{else}-->{lang focus_hottopics}<!--{/if}-->
+						<span id="focus_ctrl" class="fctrl"><img src="{IMGDIR}/pic_nv_prev.gif" alt="{lang footer_previous}" title="{lang footer_previous}" id="focusprev" class="cur1" onclick="showfocus('prev');" /> <em><span id="focuscur"></span>/$focusnum</em> <img src="{IMGDIR}/pic_nv_next.gif" alt="{lang footer_next}" title="{lang footer_next}" id="focusnext" class="cur1" onclick="showfocus('next')" /></span>
+					</h2>
+				</div>
+				<div class="bm_c" id="focus_con">
+				</div>
+			</div>
+		</div>
+		<!--{eval $focusi = 0;}-->
+		<!--{loop $_G['setting']['focus'][$_G[basescript]] $id}-->
+				<div class="bm_c" style="display: none" id="focus_$focusi">
+					<dl class="xld cl bbda">
+						<dt><a href="{$_G['cache']['focus']['data'][$id]['url']}" class="xi2" target="_blank">$_G['cache']['focus']['data'][$id]['subject']</a></dt>
+						<!--{if $_G['cache']['focus']['data'][$id][image]}-->
+						<dd class="m"><a href="{$_G['cache']['focus']['data'][$id]['url']}" target="_blank"><img src="{$_G['cache']['focus']['data'][$id]['image']}" alt="$_G['cache']['focus']['data'][$id]['subject']" /></a></dd>
+						<!--{/if}-->
+						<dd>$_G['cache']['focus']['data'][$id]['summary']</dd>
+					</dl>
+					<p class="ptn cl"><a href="{$_G['cache']['focus']['data'][$id]['url']}" class="xi2 y" target="_blank">{lang focus_show} &raquo;</a></p>
+				</div>
+		<!--{eval $focusi ++;}-->
+		<!--{/loop}-->
+		<script type="text/javascript">
+			var focusnum = $focusnum;
+			if(focusnum < 2) {
+				$('focus_ctrl').style.display = 'none';
+			}
+			if(!$('focuscur').innerHTML) {
+				var randomnum = parseInt(Math.round(Math.random() * focusnum));
+				$('focuscur').innerHTML = Math.max(1, randomnum);
+			}
+			showfocus();
+			var focusautoshow = window.setInterval('showfocus(\'next\', 1);', 5000);
+		</script>
+	<!--{/if}-->
+	<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && $_G['setting']['showpatchnotice'] == 1}-->
+		<div class="focus patch" id="patch_notice"></div>
+	<!--{/if}-->
+
+	<!--{ad/footerbanner/wp a_f/1}--><!--{ad/footerbanner/wp a_f/2}--><!--{ad/footerbanner/wp a_f/3}-->
+	<!--{ad/float/a_fl/1}--><!--{ad/float/a_fr/2}-->
+	<!--{ad/couplebanner/a_fl a_cb/1}--><!--{ad/couplebanner/a_fr a_cb/2}-->
+	<!--{ad/cornerbanner/a_cn}-->
+
+	<!--{hook/global_footer}-->
+	 <!--{if $_G['basescript'] == 'portal' && CURMODULE == index}-->    
+    <div id="ft" class="foot">
+        <p class="foot_link"><a href="./about/index.html" target="_blank" rel="nofollow">关于本站 </a>|<a style="color:red;" href="./about/links.html" target="_blank" rel="nofollow">广告合作</a>|<a href="./about/contact.html" target="_blank" rel="nofollow">联系我们</a>|<a href="./about/privacy.html" target="_blank" rel="nofollow">隐私条款</a>|<a href="./about/disclaimer.html" target="_blank" rel="nofollow">免责声明</a>|<a target="_blank" href="./sitemap.php" rel="nofollow">网站地图</a>|<a href="thread-4-1-1.html" target="_blank" rel="nofollow">友情链接</a>|<a target="_blank" href="http://www.weixiaoduo.com" rel="nofollow">技术支持</a>|<a href="/member.php?mod=clearcookies" rel="nofollow">清除痕迹</a></p>
+        <!---*敬告：免费用户需保留下面【薇晓朵网络工作室】的版权连接，如需去除或商业用途，请购买商业授权! 为避免不必要的麻烦，请参考【版权声明 http://blog.weixiaoduo.com/copyright】版权所有 (c) 2012-2013 保留所有权利。 *--->
+        <p>Copyright&nbsp;&copy;2013&nbsp;Weixiaoduo.com&nbsp;All&nbsp;Right&nbsp;Reserved.&nbsp;&nbsp;Powered&nbsp;by&nbsp;<a href="./" target="_blank" rel="nofollow">Discuz! X3.0</a>&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">(已备案)</a>&nbsp; 技术支持: <A href="http://www.weixiaoduo.com" target=_blank title="薇晓朵网络工作室">薇晓朵网络工作室</A> </p>
+    <p>本站信息均由会员发表，不代表镇巴门户网立场，禁止在本站发表与国家法律相抵触言论<!--{hook/global_footerlink}--><!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}--><script src="http://s22.cnzz.com/stat.php?id=00000&web_id=000000&show=pic1" language="JavaScript"></script></p>
+	<ul class="foot_pic">
+		<li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_gangting.png"></a></li>
+        <li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_wljc.png"></a></li>
+        <li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_beian.png"></a></li>
+        <li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_jubao.png"></a></li>
+        <li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_110.png"></a></li>
+        <li><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_fjhlw.png"></a></li>
+	</ul>
+	</div>
+    <!--{else}-->
+    <div id="ft" class="foot">
+        <p class="foot_link"><a href="./about/index.html" target="_blank" rel="nofollow">关于本站 </a>|<a style="color:red;" href="./about/links.html" target="_blank" rel="nofollow">业务合作</a>|<a href="./about/contact.html" target="_blank" rel="nofollow">联系我们</a>|<a href="./about/privacy.html" target="_blank" rel="nofollow">隐私条款</a>|<a href="./about/disclaimer.html" target="_blank" rel="nofollow">免责声明</a>|<a target="_blank" href="./sitemap.php" rel="nofollow">网站地图</a>|<a href="thread-4-1-1.html" target="_blank" rel="nofollow">友情链接</a>|<a target="_blank" href="http://blog.weixiaoduo.com" rel="nofollow">在线帮助</a>|<a href="/member.php?mod=clearcookies" rel="nofollow">清除痕迹</a></p>
+        <!---*敬告：免费用户需保留下面【薇晓朵网络工作室】的版权连接，如需去除或商业用途，请购买商业授权! 为避免不必要的麻烦，请参考【版权声明 http://blog.weixiaoduo.com/copyright】版权所有 (c) 2012-2013 保留所有权利。 *--->
+        <p>Copyright&nbsp;&copy;2013&nbsp;Weixiaoduo.com&nbsp;All&nbsp;Right&nbsp;Reserved.&nbsp;&nbsp;Powered&nbsp;by&nbsp;<a href="./" target="_blank" rel="nofollow">Discuz! X3.0</a>&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">(已备案)</a>&nbsp;<a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a></p>
+        <p>本站信息均由会员发表，不代表镇巴门户网立场，如侵犯了您的权利请<a href="#" target="_blank" rel="nofollow">发帖投诉</a><!--{hook/global_footerlink}--><!--{if $_G['setting']['statcode']}-->$_G['setting']['statcode']<!--{/if}--></script> 技术支持: <A href="http://www.weixiaoduo.com" target=_blank title="薇晓朵网络工作室">薇晓朵网络工作室</A> </p>
+        <div class="foot_pr"><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_p03.png" alt="平平" title="平平(网上报警)"/></a><a target="_blank"><img src="$_G['style']['styleimgdir']/foot_p04.png"  alt="安安" title="安安(网上报警)"/></a></div>
+    </div>
+    <!--{/if}-->
+
+	<!--{if $upgradecredit !== false}-->
+		<div id="g_upmine_menu" class="tip tip_3" style="display:none;">
+			<div class="tip_c">
+				{lang credits} $_G[member][credits], {lang thread_groupupgrade} $upgradecredit {lang credits}
+			</div>
+			<div class="tip_horn"></div>
+		</div>
+	<!--{/if}-->
+<!--{/if}-->
+
+<!--{if !$_G['setting']['bbclosed']}-->
+	<!--{if $_G[uid] && !isset($_G['cookie']['checkpm'])}-->
+	<script type="text/javascript" src="home.php?mod=spacecp&ac=pm&op=checknewpm&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if $_G[uid] && helper_access::check_module('follow') && !isset($_G['cookie']['checkfollow'])}-->
+	<script type="text/javascript" src="home.php?mod=spacecp&ac=follow&op=checkfeed&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if !isset($_G['cookie']['sendmail'])}-->
+	<script type="text/javascript" src="home.php?mod=misc&ac=sendmail&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+	<!--{if $_G[uid] && $_G['member']['allowadmincp'] == 1 && !isset($_G['cookie']['checkpatch'])}-->
+	<script type="text/javascript" src="misc.php?mod=patch&action=checkpatch&rand=$_G[timestamp]"></script>
+	<!--{/if}-->
+
+<!--{/if}-->
+
+<!--{if $_GET['diy'] == 'yes'}-->
+	<!--{if check_diy_perm($topic) && (empty($do) || $do != 'index')}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal_diy{if !check_diy_perm($topic, 'layout')}_data{/if}.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $space['self'] && CURMODULE == 'space' && $do == 'index'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}common_diy.js?{VERHASH}"></script>
+		<script type="text/javascript" src="{$_G[setting][jspath]}space_diy.js?{VERHASH}"></script>
+	<!--{/if}-->
+<!--{/if}-->
+<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && $_G['setting']['showpatchnotice'] == 1}-->
+	<script type="text/javascript">patchNotice();</script>
+<!--{/if}-->
+<!--{if $_G['uid'] && $_G['member']['allowadmincp'] == 1 && empty($_G['cookie']['pluginnotice'])}-->
+	<div class="focus plugin" id="plugin_notice"></div>
+	<script type="text/javascript">pluginNotice();</script>
+<!--{/if}-->
+<!--{if $_G['member']['newprompt'] && (empty($_G['cookie']['promptstate_'.$_G[uid]]) || $_G['cookie']['promptstate_'.$_G[uid]] != $_G['member']['newprompt']) && $_GET['do'] != 'notice'}-->
+	<script type="text/javascript">noticeTitle();</script>
+<!--{/if}-->
+
+<!--{eval userappprompt();}-->
+<!--{if $_G['basescript'] != 'userapp'}-->
+<div id="scrolltop">
+	<!--{if $_G[fid] && $_G['mod'] == 'viewthread'}-->
+	<span><a href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&extra=$_GET[extra]&page=$page{if $_GET[from]}&from=$_GET[from]{/if}" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+	<!--{/if}-->
+	<span hidefocus="true"><a title="{lang scrolltop}" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>{lang scrolltop}</b></a></span>
+	<!--{if $_G[fid]}-->
+	<span>
+		<!--{if $_G['mod'] == 'viewthread'}-->
+		<a href="forum.php?mod=forumdisplay&fid=$_G[fid]" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+		<!--{else}-->
+		<a href="forum.php" hidefocus="true" class="returnboard" title="返回版块"><b>返回版块</b></a>
+		<!--{/if}-->
+	</span>
+	<!--{/if}-->
+</div>
+
+<script type="text/javascript">_attachEvent(window, 'scroll', function(){showTopLink();});checkBlind();</script>
+<!--{/if}-->
+<!--{eval output();}-->
+<!--{if $_G['basescript'] == 'portal' && CURMODULE == index}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+        <script type="text/javascript" src="$_G['style']['styleimgdir']/zbr_jq.js?{VERHASH}"></script>
+<!--{/if}-->
+<!--{if $_G['basescript'] == 'forum' && CURMODULE == viewthread}-->
+  <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=35375" ></script>
+  <script type="text/javascript" id="bdshell_js"></script>
+  <script type="text/javascript">
+      document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+  </script>
+<!--{/if}-->
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe400bc08a78a8dce43a17116fc58ab81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+</html>

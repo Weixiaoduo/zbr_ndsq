@@ -1,0 +1,290 @@
+<!--{subtemplate common/header_common}-->
+	<meta name="application-name" content="$_G['setting']['bbname']" />
+	<meta name="msapplication-tooltip" content="$_G['setting']['bbname']" />
+	<!--{if $_G['setting']['portalstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][1]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['portal']) ? 'http://'.$_G['setting']['domain']['app']['portal'] : $_G[siteurl].'portal.php'};icon-uri={$_G[siteurl]}{IMGDIR}/portal.ico" /><!--{/if}-->
+	<meta name="msapplication-task" content="name=$_G['setting']['navs'][2]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['forum']) ? 'http://'.$_G['setting']['domain']['app']['forum'] : $_G[siteurl].'forum.php'};icon-uri={$_G[siteurl]}{IMGDIR}/bbs.ico" />
+	<!--{if $_G['setting']['groupstatus']}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][3]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['group']) ? 'http://'.$_G['setting']['domain']['app']['group'] : $_G[siteurl].'group.php'};icon-uri={$_G[siteurl]}{IMGDIR}/group.ico" /><!--{/if}-->
+	<!--{if helper_access::check_module('feed')}--><meta name="msapplication-task" content="name=$_G['setting']['navs'][4]['navname'];action-uri={echo !empty($_G['setting']['domain']['app']['home']) ? 'http://'.$_G['setting']['domain']['app']['home'] : $_G[siteurl].'home.php'};icon-uri={$_G[siteurl]}{IMGDIR}/home.ico" /><!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' && $_G['setting']['archiver']}-->
+		<link rel="archives" title="$_G['setting']['bbname']" href="{$_G[siteurl]}archiver/" />
+	<!--{/if}-->
+	<!--{if !empty($rsshead)}-->$rsshead<!--{/if}-->
+	<!--{if widthauto()}-->
+		<link rel="stylesheet" id="css_widthauto" type="text/css" href="data/cache/style_{STYLEID}_widthauto.css?{VERHASH}" />
+		<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] == 'forum' || $_G['basescript'] == 'group'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}forum.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'home' || $_G['basescript'] == 'userapp'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}home.js?{VERHASH}"></script>
+	<!--{elseif $_G['basescript'] == 'portal'}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_G['basescript'] != 'portal' && $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<script type="text/javascript" src="{$_G[setting][jspath]}portal.js?{VERHASH}"></script>
+	<!--{/if}-->
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+	<link rel="stylesheet" type="text/css" id="diy_common" href="data/cache/style_{STYLEID}_css_diy.css?{VERHASH}" />
+	<!--{/if}-->
+</head>
+
+<body id="nv_{$_G[basescript]}" class="pg_{CURMODULE}{if $_G['basescript'] === 'portal' && CURMODULE === 'list' && !empty($cat)} {$cat['bodycss']}{/if}" onkeydown="if(event.keyCode==27) return false;">
+	<div id="append_parent"></div><div id="ajaxwaitid"></div>
+	<!--{if $_GET['diy'] == 'yes' && check_diy_perm($topic)}-->
+		<!--{template common/header_diy}-->
+	<!--{/if}-->
+	<!--{if check_diy_perm($topic)}-->
+		<!--{template common/header_diynav}-->
+	<!--{/if}-->
+	<!--{if CURMODULE == 'topic' && $topic && empty($topic['useheader']) && check_diy_perm($topic)}-->
+		$diynav
+	<!--{/if}-->
+	<!--{if empty($topic) || $topic['useheader']}-->
+		<!--{if $_G['setting']['mobile']['allowmobile'] && (!$_G['setting']['cacheindexlife'] && !$_G['setting']['cachethreadon'] || $_G['uid']) && ($_GET['diy'] != 'yes' || !$_GET['inajax']) && ($_G['mobile'] != '' && $_G['cookie']['mobile'] == '' && $_GET['mobile'] != 'no')}-->
+			<div class="xi1 bm bm_c">
+			    {lang your_mobile_browser}<a href="{$_G['siteurl']}forum.php?mobile=yes">{lang go_to_mobile}</a> <span class="xg1">|</span> <a href="$_G['setting']['mobile']['nomobileurl']">{lang to_be_continue}</a>
+			</div>
+		<!--{/if}-->
+		<!--{if $_G['setting']['shortcut'] && $_G['member'][credits] >= $_G['setting']['shortcut']}-->
+			<div id="shortcut">
+				<span><a href="javascript:;" id="shortcutcloseid" title="{lang close}">{lang close}</a></span>
+				{lang shortcut_notice}
+				<a href="javascript:;" id="shortcuttip">{lang shortcut_add}</a>
+
+			</div>
+			<script type="text/javascript">setTimeout(setShortcut, 2000);</script>
+		<!--{/if}-->
+		<div id="toptb" class="cl zbr_topbar">
+			<!--{hook/global_cpnav_top}-->
+				<div id="zbr_toptb" class="wp">              
+                <div class="left"><span>镇巴门户网 - 镇巴人本地生活门户！&nbsp;<a href="./#" style="color:red;" target="_blank" rel="nofollow">广告服务</a></div>
+				<div class="right"><a onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('./');return(false);" href="javascript:" rel="nofollow">·设为首页</a><a href="./home.php?mod=space&do=thread&view=all&order=dateline" target="_blank" rel="nofollow">·查看新帖</a><a target="_blank" href="./shortcut.php" rel="nofollow">·桌面图标</a><a href="./#" target="_blank" title="用手机上镇巴门户" rel="nofollow">·手机版</a>
+					<a id="switchblind" href="javascript:;" onClick="toggleBlind(this)" title="{lang switch_blind}" class="switchblind">{lang switch_blind}</a>
+					<!--{hook/global_cpnav_extra2}-->
+					<!--{loop $_G['setting']['topnavs'][1] $nav}-->
+						<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}-->$nav[code]<!--{/if}-->
+					<!--{/loop}-->
+					<!--{if empty($_G['disabledwidthauto']) && $_G['setting']['switchwidthauto']}-->
+						<a href="javascript:;" id="switchwidth" onClick="widthauto(this)" title="{if widthauto()}{lang switch_narrow}{else}{lang switch_wide}{/if}" class="switchwidth"><!--{if widthauto()}-->{lang switch_narrow}<!--{else}-->{lang switch_wide}<!--{/if}--></a>
+					<!--{/if}-->
+					<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}--><a id="sslct" href="javascript:;" onMouseOver="delayShow(this, function() {showMenu({'ctrlid':'sslct','pos':'34!'})});">{lang changestyle}</a><!--{/if}-->
+					<!--{if check_diy_perm($topic)}-->
+						$diynav
+					<!--{/if}-->
+				</div> 
+			</div>
+		</div>
+
+		<!--{if !IS_ROBOT}-->
+			<!--{if $_G['uid']}-->
+			<ul id="myprompt_menu" class="p_pop" style="display: none;">
+				<li><a href="home.php?mod=space&do=pm" id="pm_ntc" style="background-repeat: no-repeat; background-position: 0 50%;"><em class="prompt_news{if empty($_G[member][newpm])}_0{/if}"></em>{lang pm_center}</a></li>
+
+					<li><a href="home.php?mod=follow&do=follower"><em class="prompt_follower{if empty($_G[member][newprompt_num][follower])}_0{/if}"></em><!--{lang notice_interactive_follower}-->{if $_G[member][newprompt_num][follower]}($_G[member][newprompt_num][follower]){/if}</a></li>
+
+				<!--{if $_G[member][newprompt] && $_G[member][newprompt_num][follow]}-->
+					<li><a href="home.php?mod=follow"><em class="prompt_concern"></em><!--{lang notice_interactive_follow}-->($_G[member][newprompt_num][follow])</a></li>
+				<!--{/if}-->
+				<!--{if $_G[member][newprompt]}-->
+					<!--{loop $_G['member']['category_num'] $key $val}-->
+						<li><a href="home.php?mod=space&do=notice&view=$key"><em class="notice_$key"></em><!--{echo lang('template', 'notice_'.$key)}-->(<span class="rq">$val</span>)</a></li>
+					<!--{/loop}-->
+				<!--{/if}-->
+				<!--{if empty($_G['cookie']['ignore_notice'])}-->
+				<li class="ignore_noticeli"><a href="javascript:;" onClick="setcookie('ignore_notice', 1);hideMenu('myprompt_menu')" title="{lang temporarily_to_remind}"><em class="ignore_notice"></em></a></li>
+				<!--{/if}-->
+				</ul>
+			<!--{/if}-->
+			<!--{if $_G['uid'] && !empty($_G['style']['extstyle'])}-->
+				<div id="sslct_menu" class="cl p_pop" style="display: none;">
+					<!--{if !$_G[style][defaultextstyle]}--><span class="sslct_btn" onClick="extstyle('')" title="{lang default}"><i></i></span><!--{/if}-->
+					<!--{loop $_G['style']['extstyle'] $extstyle}-->
+						<span class="sslct_btn" onClick="extstyle('$extstyle[0]')" title="$extstyle[1]"><i style='background:$extstyle[2]'></i></span>
+					<!--{/loop}-->
+				</div>
+			<!--{/if}-->
+			<!--{subtemplate common/header_qmenu}-->
+		<!--{/if}-->
+
+
+		<!--{ad/headerbanner/wp a_h}-->
+		<div id="hd" class="zbr_hd">
+			<div class="wp">
+				<div class="hdc cl">
+					<!--{eval $mnid = getcurrentnav();}-->
+					<h2><!--{if !isset($_G['setting']['navlogos'][$mnid])}--><a href="{if $_G['setting']['domain']['app']['default']}http://{$_G['setting']['domain']['app']['default']}/{else}./{/if}" title="$_G['setting']['bbname']"><!--{if $_G['basescript'] == 'forum'}-->
+   {$_G['style']['boardlogo']}<!--{elseif $_G['basescript'] == 'portal'}-->
+    <img border="0" alt="$_G['setting']['bbname']" src="template/zbr_ndsq/style/portallogo.gif">
+   <!--{else}-->
+    {$_G['style']['boardlogo']}
+   <!--{/if}--></a><!--{else}-->$_G['setting']['navlogos'][$mnid]<!--{/if}--></h2>
+
+					<!--{if $_G['uid']}-->
+					<div id="um">
+						<div class="avt y"><a href="home.php?mod=space&uid=$_G[uid]"><!--{avatar($_G[uid],small)}--></a></div>
+						<p>
+							<strong class="vwmy{if $_G['setting']['connect']['allow'] && $_G[member][conisbind]} qq{/if}"><a href="home.php?mod=space&uid=$_G[uid]" target="_blank" title="{lang visit_my_space}">{$_G[member][username]}</a></strong>
+							<!--{if $_G['group']['allowinvisible']}-->
+							<span id="loginstatus">
+								<a id="loginstatusid" href="member.php?mod=switchstatus" title="{lang login_switch_invisible_mode}" onClick="ajaxget(this.href, 'loginstatus');return false;" class="xi2"></a>
+							</span>
+							<!--{/if}-->
+							<!--{hook/global_usernav_extra1}-->
+							<span class="pipe">|</span><!--{hook/global_usernav_extra4}--><a href="home.php?mod=spacecp">{lang setup}</a>
+							<span class="pipe">|</span><a href="home.php?mod=space&do=pm" id="pm_ntc"{if $_G[member][newpm]} class="new"{/if}>{lang pm_center}</a>
+							<span class="pipe">|</span><a href="home.php?mod=space&do=notice" id="myprompt"{if $_G[member][newprompt]} class="new"{/if}>{lang remind}<!--{if $_G[member][newprompt]}-->($_G[member][newprompt])<!--{/if}--></a><span id="myprompt_check"></span>
+							<!--{if $_G['setting']['taskon'] && !empty($_G['cookie']['taskdoing_'.$_G['uid']])}--><span class="pipe">|</span><a href="home.php?mod=task&item=doing" id="task_ntc" class="new">{lang task_doing}</a><!--{/if}-->
+							<!--{if ($_G['group']['allowmanagearticle'] || $_G['group']['allowpostarticle'] || $_G['group']['allowdiy'] || getstatus($_G['member']['allowadmincp'], 4) || getstatus($_G['member']['allowadmincp'], 6) || getstatus($_G['member']['allowadmincp'], 2) || getstatus($_G['member']['allowadmincp'], 3))}-->
+								<span class="pipe">|</span><a href="portal.php?mod=portalcp"><!--{if $_G['setting']['portalstatus'] }-->{lang portal_manage}<!--{else}-->{lang portal_block_manage}<!--{/if}--></a>
+							<!--{/if}-->
+							<!--{if $_G['uid'] && $_G['group']['radminid'] > 1}-->
+								<span class="pipe">|</span><a href="forum.php?mod=modcp&fid=$_G[fid]" target="_blank">{lang forum_manager}</a>
+							<!--{/if}-->
+							<!--{if $_G['uid'] && $_G['adminid'] == 1 && $_G['setting']['cloud_status']}-->
+								<span class="pipe">|</span><a href="admin.php?frames=yes&action=cloud&operation=applist" target="_blank">{lang cloudcp}</a>
+							<!--{/if}-->
+							<!--{if $_G['uid'] && getstatus($_G['member']['allowadmincp'], 1)}-->
+								<span class="pipe">|</span><a href="admin.php" target="_blank">{lang admincp}</a>
+							<!--{/if}-->
+							<!--{hook/global_usernav_extra2}-->
+							<span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+						</p>
+						<p>
+							<!--{hook/global_usernav_extra3}-->
+							<!--{eval $upgradecredit = $_G['uid'] && $_G['group']['grouptype'] == 'member' && $_G['group']['groupcreditslower'] != 999999999 ? $_G['group']['groupcreditslower'] - $_G['member']['credits'] : false;}-->
+							<a href="home.php?mod=spacecp&ac=credit&showcredit=1" id="extcreditmenu"{if !$_G[setting][bbclosed]} onMouseOver="delayShow(this, showCreditmenu);" class="showmenu"{/if}>{lang credits}: $_G[member][credits]</a>
+							<span class="pipe">|</span>{lang usergroup}: <a href="home.php?mod=spacecp&ac=usergroup"{if $upgradecredit !== 'false'} id="g_upmine" class="xi2" onMouseOver="delayShow(this, showUpgradeinfo)"{/if}>$_G[group][grouptitle]</a>
+						</p>
+					</div>
+					<!--{elseif !empty($_G['cookie']['loginuser'])}-->
+					<p>
+						<strong><a id="loginuser" class="noborder"><!--{echo dhtmlspecialchars($_G['cookie']['loginuser'])}--></a></strong>
+						<span class="pipe">|</span><a href="member.php?mod=logging&action=login" onClick="showWindow('login', this.href)">{lang activation}</a>
+						<span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+					</p>
+					<!--{elseif !$_G[connectguest]}-->
+						<!--{template member/login_simple}-->
+					<!--{else}-->
+					<div id="um">
+						<div class="avt y"><!--{avatar(0,small)}--></div>
+						<p>
+							<strong class="vwmy qq">{$_G[member][username]}</strong>
+							<!--{hook/global_usernav_extra1}-->
+							<span class="pipe">|</span><a href="member.php?mod=logging&action=logout&formhash={FORMHASH}">{lang logout}</a>
+						</p>
+						<p>
+							<a href="home.php?mod=spacecp&ac=credit&showcredit=1">{lang credits}: 0</a>
+							<span class="pipe">|</span>{lang usergroup}: $_G[group][grouptitle]
+						</p>
+					</div>
+					<!--{/if}-->
+				</div>
+
+				<div id="nv">
+					<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu($_G[fid]);})">{lang my_nav}</a>
+					<ul>
+						<!--{loop $_G['setting']['navs'] $nav}-->
+							<!--{if $nav['available'] && (!$nav['level'] || ($nav['level'] == 1 && $_G['uid']) || ($nav['level'] == 2 && $_G['adminid'] > 0) || ($nav['level'] == 3 && $_G['adminid'] == 1))}--><li {if $mnid == $nav[navid]}class="a" {/if}$nav[nav]></li><!--{/if}-->
+						<!--{/loop}-->
+					</ul>
+					<!--{hook/global_nav_extra}-->
+				</div>
+				<!--{if !empty($_G['setting']['plugins']['jsmenu'])}-->
+					<ul class="p_pop h_pop" id="plugin_menu" style="display: none">
+					<!--{loop $_G['setting']['plugins']['jsmenu'] $module}-->
+						 <!--{if !$module['adminid'] || ($module['adminid'] && $_G['adminid'] > 0 && $module['adminid'] >= $_G['adminid'])}-->
+						 <li>$module[url]</li>
+						 <!--{/if}-->
+					<!--{/loop}-->
+					</ul>
+				<!--{/if}-->
+				$_G[setting][menunavs]
+				<div id="mu" class="cl">
+				<!--{if $_G['setting']['subnavs']}-->
+					<!--{loop $_G[setting][subnavs] $navid $subnav}-->
+						<!--{if $_G['setting']['navsubhover'] || $mnid == $navid}-->
+						<ul class="cl {if $mnid == $navid}current{/if}" id="snav_$navid" style="display:{if $mnid != $navid}none{/if}">
+						$subnav
+						</ul>
+						<!--{/if}-->
+					<!--{/loop}-->
+				<!--{/if}-->
+				</div>
+                <div class="nav_bd">
+<STYLE type="text/css">
+.wapNote,.colNav4t dl,.colNav4t dt,.colNav4t dd a:hover,.colNav4t dd a:hover span,#miniSearch .btn-search,.navAd,.colNav4t dl div em{ background:url(./template/zbr_ndsq/style/gif.gif) no-repeat;}
+.wapNote {position:absolute;left:205px;top:36px;padding-left:15px;line-height:16px;_width:180px;color:#00AAD1;background-position:-988px -260px;}
+.wapNote a {color:#ff6600;}
+.wapNote a:hover {text-decoration:underline;}
+
+#colNav4t { height:58px; padding:1px; _margin-top:5px;
+margin-bottom:5px; color:#325E7F;
+font:14px/1.5 微软雅黑,Tahoma,Helvetica,Arial,"5b8b4f53";}
+
+.colNav4t { background:#F6F6F6;}
+.colNav4t a { color:#325E7F;}
+.colNav4t dl { float:left; position:relative; z-index:1; padding:8px 8px 3px 14px; height:48px; background-position:-315px -120px;}
+.colNav4t dl.navShopping { width:260px; padding-left:10px; background:none;clear:left}
+.colNav4t dl.navLife { width:260px;}
+.colNav4t dl.navTalk { width:180px;}
+.colNav4t dl.navService { width:160px;}
+.colNav4t dt { float:left; width:28px; margin-top:1px; text-align:center; font-size:12px; color:#4575CD; padding-top:25px;
+background-position:-589px -55px;}
+.colNav4t dl.navLife dt { background-position:-620px -53px;}
+.colNav4t dl.navTalk dt { background-position:-651px -53px;}
+.colNav4t dl.navService dt { background-position:-681px -55px;}
+.colNav4t dd { margin-left:30px;}
+.colNav4t dd a,.colNav4t dd a span { display:inline-block;zoom:1;*display:inline;}
+.colNav4t dd a {margin-bottom:2px;margin-right:2px;font-size:14px;}
+.colNav4t dd a span { position:relative; z-index:0; right:-2px; padding:0 7px 0 5px;padding-top:1px9;height:22px;line-height:22px;*cursor:pointer;}
+
+.colNav4t dd a:hover { text-decoration:none; color:#FFFFFF;}
+.colNav4t dd a:hover,.colNav4t dd a:hover span {background-position:-882px -153px;}
+.colNav4t dd a:hover span { background-position:100% -153px;}
+
+.colNav4t dl div { position:absolute; right:-2px; top:55px;width:103px}
+.colNav4t dl div em { position:absolute; top:-6px; _top:-4px; right:4px; width:8px; height:8px; overflow:hidden; background-position:100% -19px;}
+.colNav4t dl p { display:none; margin-top:5px; _margin-top:7px; padding:0 7px 5px 4px; border:1px solid #DDD; border-top:none; background:#FFF;}
+.colNav4t dl.moreOn { background-color:#FFF;}
+.colNav4t dl.moreOn em { display:none;}
+.STYLE2 {font-weight: bold}
+</style>
+<div id="colNav4t"><div class="colNav4t cf"><dl class="navShopping">
+<dt class="navAd"><strong>互动</strong></dt><dd>
+<a target="_blank" title="了解镇巴民生民声" href="./#"><span>镇巴新闻</span></a>
+<a target="_blank" title="镇巴本地的便民生活信息" href="./#"><span>便民信息</span></a>
+<a target="_blank" title="找一个人来爱自己" href="./#"><span>寻觅女友</span></a>
+<a target="_blank" title="镇巴美食，献出你的手艺" href="./#"><span>镇巴美食</span></a>
+<a target="_blank" title="记录旅游的经历" href="./#"><span>游戏人生</span></a>
+<a target="_blank" title="找一个人来自己爱" href="./#"><span>挑选男友</span></a></dd>
+</dl>
+<dl class="navLife">
+  <dt class="STYLE2"><strong>生活</strong></dt><dd>
+<a target="_blank" title="镇巴租房卖房信息" href="./#"><span>房屋租售</span></a>
+<a target="_blank" title="带你看遍镇巴各大企业" href="./#"><span>商家黄页</span></a>
+<a target="_blank" title="工作、结婚、生子、买房、买车" href="./#"><span>交友征婚</span></a>
+<a target="_blank" title="镇巴人才频道，招聘、求职、兼职" href="./#"><span>求职招聘</span></a>
+<a target="_blank" title="看看镇巴哪儿又有什么优惠活动了" href="./#"><span>促销优惠</span></a>
+<a target="_blank" title="记录每一天的生活" href="./#"><span>摄影拍客</span></a></dd> 
+</dl>
+<dl class="navTalk">
+<dt><strong>服务</strong></dt><dd>
+<a target="_blank" href="./#"><span>网站建设</span></a>
+<a target="_blank" href="./#"><span>网络购物</span></a>
+<a target="_blank" href="./#"><span>网店装修</span></a>
+<a target="_blank" href="./#"><span>广告服务</span></a>
+</dd>
+</dl>
+<dl class="navService">
+<dt><strong>兴趣</strong></dt><dd>
+<a target="_blank" href="./#"><span>日志</span></a><a target="_blank" href="./#"><span>相册</span></a><a target="_blank" href="./#"><span>应用</span></a><a target="_blank" href="./#"><span>博客</span></a><a target="_blank" href="./#"><span>电台</span></a><a target="_blank" href="./#"><span>星空</span></a>
+</dd>
+</dl></div> 
+</div>
+                </div>
+				<!--{ad/subnavbanner/a_mu}-->
+			</div>
+		</div>
+		<!--{hook/global_header}-->
+	<!--{/if}-->
+	<div id="wp" class="wp">

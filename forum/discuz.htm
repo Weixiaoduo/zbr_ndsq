@@ -1,0 +1,585 @@
+<!--{subtemplate common/header}-->
+
+<!--{if empty($gid)}-->
+	<!--{ad/text/wp a_t}-->
+<!--{/if}-->
+
+	<style id="diy_style" type="text/css"></style>
+
+<!--{if empty($gid)}-->
+	<div class="wp">
+		<!--[diy=diy0]--><div id="diy0" class="area"></div><!--[/diy]-->
+	</div>
+<!--{/if}-->
+
+<!--{subtemplate common/pubsearchform}-->
+
+<div id="ct" class="wp cl{if $_G['setting']['forumallowside']} ct2{/if}">
+	<!--{if empty($gid)}-->
+		<div id="chart" class="bm bw0 cl">
+			<p class="chart z">{lang index_today}: <em>$todayposts</em><span class="pipe">|</span>{lang index_yesterday}: <em>$postdata[0]</em><span class="pipe">|</span>{lang index_posts}: <em>$posts</em><span class="pipe">|</span>{lang index_members}: <em>$_G['cache']['userstats']['totalmembers']</em><!--{if $_G['cache']['userstats']['newsetuser']}--><span class="pipe">|</span>{lang welcome_new_members}: <em><a href="home.php?mod=space&username={echo rawurlencode($_G['cache']['userstats']['newsetuser'])}" target="_blank" class="xi2">$_G['cache']['userstats']['newsetuser']</a></em><!--{/if}--></p>
+			<div class="y">
+				<!--{hook/index_nav_extra}-->
+                <!--{if empty($_G['disabledwidthauto']) && $_G['setting']['switchwidthauto']}-->
+						<a class="xi2" href="javascript:;" onClick="widthauto(this)"><!--{if widthauto()}-->{lang switch_narrow}<!--{else}-->{lang switch_wide}<!--{/if}--></a><span class="pipe">|</span>
+					<!--{/if}-->
+				<!--{if $_G['uid']}--><a href="./forum.php?mod=guide&view=my" title="{lang my_posts}" class="xi2">{lang my_posts}</a><!--{/if}--><!--{if !empty($_G['setting']['search']['forum']['status'])}--><!--{if $_G['uid']}--><span class="pipe">|</span><!--{/if}--><a href="./forum.php?mod=guide&view=new" title="{lang show_newthreads}" class="xi2">{lang show_newthreads}</a><span class="pipe">|</span><!--{/if}--><a href="./misc.php?mod=signin&formhash=12bcdfe1" title="签到领奖" class="xi2">签到领奖</a> <span class="pipe">|<a href="./home.php?mod=spacecp&ac=promotion" title="邀请注册" class="xi2" target="_blank">邀请注册</a> <span class="pipe">|</span><a class="xi2" id="gjmenu" href="Javascript: void(0)" style="text-decoration:none;" onmouseover="showMenu(this.id)">社区工具</a> <span class="pipe">|</span><a href="./misc.php?mod=ranklist" title="排行榜" class="xi2" target="_blank">排行榜</a></p>
+              <div class="sqgj_menu" id="gjmenu_menu" style="display:none;">
+                <ul>				
+
+					<li><a target="_blank" href="./home.php?mod=spacecp&ac=profile&op=verify">实名认证</a></li> 	
+					<li><a target="_blank" href="./meitu.php">图片美化</a></li>
+					<li><a target="_blank" href="./home.php?mod=medal">勋章中心</a></li>
+					<li><a target="_blank" href="./#">镇巴地图</a></li>
+                </ul>
+             </div>
+			</div>
+		</div>
+	<!--{/if}-->
+  <div class="wp">
+		<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+	</div>
+    <div class="zbr_hot">
+    <div class="zbr_hot_title">
+      <h3 class="zbhot_t_left"><span>焦点图片</span></h3>
+      <ul class="zbhot_t_right">
+<li><a href="javascript:if(!window.open(&quot;./template/zbr_ndsq/style/weixiaoduo-wixin.jpg&quot;,&quot;D&quot;,&quot;height=250,width=250,toolbar=no,menubar=no,scrollbars=no,location=no,status=no&quot;))
+{location.href=&quot;.&quot;}"><img src="./template/zbr_ndsq/style/wx.png" alt="" border="0" style="-webkit-user-select: none"></a></li>
+<li><iframe width="110" height="22" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=110&height=22&uid=1769953671&style=2&btn=red&dpc=1"></iframe></li>
+<li><iframe width="120" scrolling="no" height="23" frameborder="0" style="margin:0px 0 0 0px;float:left;" allowtransparency="true" marginheight="0" marginwidth="0" src="http://follow.v.t.qq.com/index.php?c=follow&amp;a=quick&amp;name=f2010525&amp;style=5&amp;f=1"></iframe></li>
+        <li><a id="hot1" onmouseover="showTab('hot',1,7)" class="zbr_hov" href="Javascript: void(0)" >今日热门</a></li>
+        <li><a id="hot2" onmouseover="showTab('hot',2,7)" href="Javascript: void(0)">最新主题</a></li>
+        <li><a id="hot3" onmouseover="showTab('hot',3,7)" href="Javascript: void(0)">最新回复</a></li>
+        <li><a id="hot4" onmouseover="showTab('hot',4,7)" href="Javascript: void(0)">活跃会员</a></li>
+      </ul>
+    </div>
+
+    <div class="zbr_hot_con">
+      <div class="zbhot_con_left">
+        <!--[diy=zbr01]-->
+        <div id="zbr01" class="area"></div>
+        <!--[/diy]--></div>
+      <div class="zbhot_con_right">
+        <div id="con_hot_1"> 
+          <!--[diy=zbr02]-->
+          <div id="zbr02" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_2" class="zbr_hid"> 
+          <!--[diy=zbr03]-->
+          <div id="zbr03" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_3" class="zbr_hid"> 
+          <!--[diy=zbr04]-->
+          <div id="zbr04" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_4" class="zbr_hid"> 
+          <!--[diy=zbr05]-->
+          <div id="zbr05" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_5" class="zbr_hid"> 
+          <!--[diy=zbr06]-->
+          <div id="zbr06" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_6" class="zbr_hid"> 
+          <!--[diy=zbr07]-->
+          <div id="zbr07" class="area"></div>
+          <!--[/diy]--> 
+        </div>
+        <div id="con_hot_7" class="zbr_hid">
+          <div class="con_hot_spe"> 
+            <!--[diy=zbr08]-->
+            <div id="zbr08" class="area"></div>
+            <!--[/diy]--> 
+          </div>
+          <div class="con_hot_spe"> 
+            <!--[diy=zbr09]-->
+            <div id="zbr09" class="area"></div>
+            <!--[/diy]--> 
+          </div>
+          <div class="con_hot_spe"> 
+            <!--[diy=zbr10]-->
+            <div id="zbr10" class="area"></div>
+            <!--[/diy]--> 
+          </div>
+        </div>
+      </div>
+    </div>
+     <script type="text/javascript">
+		function showTab(name,cur,n){
+			for(i=1;i<=n;i++){
+				var menu=document.getElementById(name+i);
+				var con=document.getElementById("con_"+name+"_"+i);
+				menu.className=i==cur?"zbr_hov":"";
+				con.className=i==cur?"":"zbr_hid";
+			 }
+		}
+    </script>
+
+  <div class="wp">
+		<!--[diy=diy2]--><div id="diy2" class="area"></div><!--[/diy]-->
+	</div>
+  </div>
+    <div class="wp">
+		<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+	</div>
+  <div class="wp">
+		<!--[diy=diy4]--><div id="diy4" class="area"></div><!--[/diy]-->
+	</div>
+  <!--{if empty($gid) && $announcements}-->
+  <div class="cl">
+	<div class="z zbr_an">
+		<div id="an">
+			<dl class="cl">
+				<dt class="z xw1">&nbsp;</dt>
+				<dd>
+					<div id="anc"><ul id="ancl">$announcements</ul></div>
+				</dd>
+			</dl>
+		</div>
+		<script type="text/javascript">announcement();</script>
+	</div>
+	<div class="y zbr_qq"><!--{hook/index_status_extra}--></div>
+  </div>
+  <!--{/if}-->
+
+	<div class="mn zbr_bbs">
+		<!--{hook/index_top}-->
+
+		<!--{if !empty($_G['cache']['heats']['message'])}-->
+			<div class="bm">
+				<div class="bm_h cl">
+					<h2>{lang hotthreads_forum}</h2>
+				</div>
+				<div class="bm_c cl">
+					<div class="heat z">
+						<!--{loop $_G['cache']['heats']['message'] $data}-->
+							<dl class="xld">
+								<dt><!--{if $_G['adminid'] == 1}--><a class="d" href="forum.php?mod=misc&action=removeindexheats&tid=$data[tid]" onclick="return removeindexheats()">delete</a><!--{/if}-->
+								<a href="forum.php?mod=viewthread&tid=$data[tid]" target="_blank" class="xi2">$data[subject]</a></dt>
+								<dd>$data[message]</dd>
+							</dl>
+						<!--{/loop}-->
+					</div>
+					<ul class="xl xl1 heatl">
+					<!--{loop $_G['cache']['heats']['subject'] $data}-->
+						<li><!--{if $_G['adminid'] == 1}--><a class="d" href="forum.php?mod=misc&action=removeindexheats&tid=$data[tid]" onclick="return removeindexheats()">delete</a><!--{/if}-->&middot; <a href="forum.php?mod=viewthread&tid=$data[tid]" target="_blank" class="xi2">$data[subject]</a></li>
+					<!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+		<!--{/if}-->
+		<!--{hook/index_catlist_top}-->
+		<div class="fl bm">
+			<!--{if !empty($collectiondata['follows'])}-->
+
+			<!--{eval $forumscount = count($collectiondata['follows']);}-->
+			<!--{eval $forumcolumns = 4;}-->
+
+			<!--{eval $forumcolwidth = (floor(100 / $forumcolumns) - 0.1).'%';}-->
+
+			<div class="bm bmw {if $forumcolumns} flg{/if} cl">
+				<div class="bm_h cl">
+					<span class="o">
+						<img id="category_-1_img" src="{IMGDIR}/$collapse['collapseimg_-1']" title="{lang spread}" alt="{lang spread}" onclick="toggle_collapse('category_-1');" />
+					</span>
+					<h2><a href="forum.php?mod=collection&op=my">{lang my_order_collection}</a></h2>
+				</div>
+				<div id="category_-1" class="bm_c" style="{echo $collapse['category_-1']}">
+					<table cellspacing="0" cellpadding="0" class="fl_tb">
+						<tr>
+						<!--{eval $ctorderid = 0;}-->
+						<!--{loop $collectiondata['follows'] $key $colletion}-->
+							<!--{if $ctorderid && ($ctorderid % $forumcolumns == 0)}-->
+								</tr>
+								<!--{if $ctorderid < $forumscount}-->
+									<tr class="fl_row">
+								<!--{/if}-->
+							<!--{/if}-->
+							<td class="fl_g"{if $forumcolwidth} width="$forumcolwidth"{/if}>
+								<div class="fl_icn_g">
+								<a href="forum.php?mod=collection&action=view&ctid={$colletion[ctid]}" target="_blank"><img src="{IMGDIR}/forum{if $followcollections[$key]['lastvisit'] < $colletion['lastupdate']}_new{/if}.gif" alt="$colletion[name]" /></a>
+								</div>
+								<dl>
+									<dt><a href="forum.php?mod=collection&action=view&ctid={$colletion[ctid]}">$colletion[name]</a></dt>
+									<dd><em>{lang forum_threads}: <!--{echo dnumber($colletion[threadnum])}--></em>, <em>{lang collection_commentnum}: <!--{echo dnumber($colletion[commentnum])}--></em></dd>
+									<dd>
+									<!--{if $colletion['lastpost']}-->
+										<!--{if $forumcolumns < 3}-->
+											<a href="forum.php?mod=redirect&tid=$colletion[lastpost]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($colletion[lastsubject], 30)}--></a> <cite><!--{date($colletion[lastposttime])}--> <!--{if $colletion['lastposter']}-->$colletion['lastposter']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+										<!--{else}-->
+											<a href="forum.php?mod=redirect&tid=$colletion[lastpost]&goto=lastpost#lastpost">{lang forum_lastpost}: <!--{date($colletion[lastposttime])}--></a>
+										<!--{/if}-->
+									<!--{else}-->
+										{lang never}
+									<!--{/if}-->
+									</dd>
+									<!--{hook/index_followcollection_extra $colletion[ctid]}-->
+								</dl>
+							</td>
+							<!--{eval $ctorderid++;}-->
+
+						<!--{/loop}-->
+						<!--{if ($columnspad = $ctorderid % $forumcolumns) > 0}--><!--{echo str_repeat('<td class="fl_g"'.($forumcolwidth ? " width=\"$forumcolwidth\"" : '').'></td>', $forumcolumns - $columnspad);}--><!--{/if}-->
+						</tr>
+					</table>
+
+				</div>
+			</div>
+
+			<!--{/if}-->
+			<!--{if empty($gid) && !empty($forum_favlist)}-->
+			<!--{eval $forumscount = count($forum_favlist);}-->
+			<!--{eval $forumcolumns = $forumscount > 3 ? ($forumscount == 4 ? 4 : 5) : 1;}-->
+
+			<!--{eval $forumcolwidth = (floor(100 / $forumcolumns) - 0.1).'%';}-->
+
+			<div class="bm bmw {if $forumcolumns} flg{/if} cl">
+				<div class="bm_h cl">
+					<span class="o">
+						<img id="category_0_img" src="{IMGDIR}/$collapse['collapseimg_0']" title="{lang spread}" alt="{lang spread}" onclick="toggle_collapse('category_0');" />
+					</span>
+					<h2><a href="home.php?mod=space&do=favorite&type=forum">{lang forum_myfav}</a></h2>
+				</div>
+				<div id="category_0" class="bm_c" style="{echo $collapse['category_0']}">
+					<table cellspacing="0" cellpadding="0" class="fl_tb">
+						<tr>
+						<!--{eval $favorderid = 0;}-->
+						<!--{loop $forum_favlist $key $favorite}-->
+						<!--{if $favforumlist[$favorite[id]]}-->
+						<!--{eval $forum=$favforumlist[$favorite[id]];}-->
+						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+							<!--{if $forumcolumns>1}-->
+								<!--{if $favorderid && ($favorderid % $forumcolumns == 0)}-->
+									</tr>
+									<!--{if $favorderid < $forumscount}-->
+										<tr class="fl_row">
+									<!--{/if}-->
+								<!--{/if}-->
+								<td class="fl_g"{if $forumcolwidth} width="$forumcolwidth"{/if}>
+									<div class="fl_icn_g"{if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="width: {$forum[extra][iconwidth]}px;"{/if}>
+									<!--{if $forum[icon]}-->
+										$forum[icon]
+									<!--{else}-->
+										<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
+									<!--{/if}-->
+									</div>
+									<dl{if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="margin-left: {$forum[extra][iconwidth]}px;"{/if}>
+										<dt><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a><!--{if $forum[todayposts] && !$forum['redirect']}--><em class="xw0 xi1" title="{lang forum_todayposts}"> ($forum[todayposts])</em><!--{/if}--></dt>
+										<!--{if empty($forum[redirect])}--><dd><em>{lang forum_threads}: <!--{echo dnumber($forum[threads])}--></em>, <em>{lang forum_posts}: <!--{echo dnumber($forum[posts])}--></em></dd><!--{/if}-->
+										<dd>
+										<!--{if $forum['permission'] == 1}-->
+											{lang private_forum}
+										<!--{else}-->
+											<!--{if $forum['redirect']}-->
+												<a href="$forumurl" class="xi2">{lang url_link}</a>
+											<!--{elseif is_array($forum['lastpost'])}-->
+												<!--{if $forumcolumns < 3}-->
+													<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($forum[lastpost][subject], 30)}--></a> <cite>$forum[lastpost][dateline] <!--{if $forum['lastpost']['author']}-->$forum['lastpost']['author']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+												<!--{else}-->
+													<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost">{lang forum_lastpost}: $forum[lastpost][dateline]</a>
+												<!--{/if}-->
+											<!--{else}-->
+												{lang never}
+											<!--{/if}-->
+										<!--{/if}-->
+										</dd>
+										<!--{hook/index_favforum_extra $forum[fid]}-->
+									</dl>
+								</td>
+								<!--{eval $favorderid++;}-->
+							<!--{else}-->
+								<td class="fl_icn" {if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="width: {$forum[extra][iconwidth]}px;"{/if}>
+									<!--{if $forum[icon]}-->
+										$forum[icon]
+									<!--{else}-->
+										<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
+									<!--{/if}-->
+								</td>
+								<td>
+									<h2><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a><!--{if $forum[todayposts] && !$forum['redirect']}--><em class="xw0 xi1" title="{lang forum_todayposts}"> ($forum[todayposts])</em><!--{/if}--></h2>
+									<!--{if $forum[description]}--><p class="xg2">$forum[description]</p><!--{/if}-->
+									<!--{if $forum['subforums']}--><p>{lang forum_subforums}: $forum['subforums']</p><!--{/if}-->
+									<!--{if $forum['moderators']}--><p>{lang forum_moderators}: <span class="xi2">$forum[moderators]</span></p><!--{/if}-->
+									<!--{hook/index_favforum_extra $forum[fid]}-->
+								</td>
+								<td class="fl_i">
+									<!--{if empty($forum[redirect])}--><span class="xi2"><!--{echo dnumber($forum[threads])}--></span><span class="xg1"> / <!--{echo dnumber($forum[posts])}--></span><!--{/if}-->
+								</td>
+								<td class="fl_by">
+									<div>
+									<!--{if $forum['permission'] == 1}-->
+										{lang private_forum}
+									<!--{else}-->
+										<!--{if $forum['redirect']}-->
+											<a href="$forumurl" class="xi2">{lang url_link}</a>
+										<!--{elseif is_array($forum['lastpost'])}-->
+											<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($forum[lastpost][subject], 30)}--></a> <cite>$forum[lastpost][dateline] <!--{if $forum['lastpost']['author']}-->$forum['lastpost']['author']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+										<!--{else}-->
+											{lang never}
+										<!--{/if}-->
+									<!--{/if}-->
+									</div>
+								</td>
+							</tr>
+							<tr class="fl_row">
+
+							<!--{/if}-->
+						<!--{/if}-->
+						<!--{/loop}-->
+						<!--{if ($columnspad = $favorderid % $forumcolumns) > 0}--><!--{echo str_repeat('<td class="fl_g"'.($forumcolwidth ? " width=\"$forumcolwidth\"" : '').'></td>', $forumcolumns - $columnspad);}--><!--{/if}-->
+						</tr>
+					</table>
+
+				</div>
+			</div>
+			<!--{ad/intercat/bm a_c/-1}-->
+		<!--{/if}-->
+		<!--{loop $catlist $key $cat}-->
+			<!--{hook/index_catlist $cat[fid]}-->
+			<div class="bm bmw {if $cat['forumcolumns']} flg{/if} cl">
+				<div class="bm_h cl">
+					<span class="o">
+						<img id="category_$cat[fid]_img" src="{IMGDIR}/$cat[collapseimg]" title="{lang spread}" alt="{lang spread}" onclick="toggle_collapse('category_$cat[fid]');" />
+					</span>
+					<!--{if $cat['moderators']}--><span class="y">{lang forum_category_modedby}: $cat[moderators]</span><!--{/if}-->
+					<!--{eval $caturl = !empty($cat['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$cat['domain'].'.'.$_G['setting']['domain']['root']['forum'] : '';}-->
+					<h2><a href="{if !empty($caturl)}$caturl{else}forum.php?gid=$cat[fid]{/if}" style="{if $cat[extra][namecolor]}color: {$cat[extra][namecolor]};{/if}">$cat[name]</a></h2>
+				</div>
+				<div id="category_$cat[fid]" class="bm_c" style="{echo $collapse['category_'.$cat[fid]]}">
+					<table cellspacing="0" cellpadding="0" class="fl_tb">
+						<tr>
+						<!--{loop $cat[forums] $forumid}-->
+						<!--{eval $forum=$forumlist[$forumid];}-->
+						<!--{eval $forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];}-->
+						<!--{if $cat['forumcolumns']}-->
+							<!--{if $forum['orderid'] && ($forum['orderid'] % $cat['forumcolumns'] == 0)}-->
+								</tr>
+								<!--{if $forum['orderid'] < $cat['forumscount']}-->
+									<tr class="fl_row">
+								<!--{/if}-->
+							<!--{/if}-->
+							<td class="fl_g" width="$cat[forumcolwidth]">
+								<div class="fl_icn_g"{if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="width: {$forum[extra][iconwidth]}px;"{/if}>
+								<!--{if $forum[icon]}-->
+									$forum[icon]
+								<!--{else}-->
+									<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
+								<!--{/if}-->
+								</div>
+								<dl{if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="margin-left: {$forum[extra][iconwidth]}px;"{/if}>
+									<dt><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a><!--{if $forum[todayposts] && !$forum['redirect']}--><em class="xw0 xi1" title="{lang forum_todayposts}"> ($forum[todayposts])</em><!--{/if}--></dt>
+									<!--{if empty($forum[redirect])}--><dd><em>{lang forum_threads}: <!--{echo dnumber($forum[threads])}--></em>, <em>{lang forum_posts}: <!--{echo dnumber($forum[posts])}--></em></dd><!--{/if}-->
+									<dd>
+									<!--{if $forum['permission'] == 1}-->
+										{lang private_forum}
+									<!--{else}-->
+										<!--{if $forum['redirect']}-->
+											<a href="$forumurl" class="xi2">{lang url_link}</a>
+										<!--{elseif is_array($forum['lastpost'])}-->
+											<!--{if $cat['forumcolumns'] < 3}-->
+												<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($forum[lastpost][subject], 30)}--></a> <cite>$forum[lastpost][dateline] <!--{if $forum['lastpost']['author']}-->$forum['lastpost']['author']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+											<!--{else}-->
+												<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost">{lang forum_lastpost}: $forum[lastpost][dateline]</a>
+											<!--{/if}-->
+										<!--{else}-->
+											{lang never}
+										<!--{/if}-->
+									<!--{/if}-->
+									</dd>
+									<!--{hook/index_forum_extra $forum[fid]}-->
+								</dl>
+							</td>
+						<!--{else}-->
+							<td class="fl_icn" {if !empty($forum[extra][iconwidth]) && !empty($forum[icon])} style="width: {$forum[extra][iconwidth]}px;"{/if}>
+								<!--{if $forum[icon]}-->
+									$forum[icon]
+								<!--{else}-->
+									<a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{IMGDIR}/forum{if $forum[folder]}_new{/if}.gif" alt="$forum[name]" /></a>
+								<!--{/if}-->
+							</td>
+							<td>
+								<h2><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a><!--{if $forum[todayposts] && !$forum['redirect']}--><em class="xw0 xi1" title="{lang forum_todayposts}"> ($forum[todayposts])</em><!--{/if}--></h2>
+								<!--{if $forum[description]}--><p class="xg2">$forum[description]</p><!--{/if}-->
+								<!--{if $forum['subforums']}--><p>{lang forum_subforums}: $forum['subforums']</p><!--{/if}-->
+								<!--{if $forum['moderators']}--><p>{lang forum_moderators}: <span class="xi2">$forum[moderators]</span></p><!--{/if}-->
+								<!--{hook/index_forum_extra $forum[fid]}-->
+							</td>
+							<td class="fl_i">
+								<!--{if empty($forum[redirect])}--><span class="xi2"><!--{echo dnumber($forum[threads])}--></span><span class="xg1"> / <!--{echo dnumber($forum[posts])}--></span><!--{/if}-->
+							</td>
+							<td class="fl_by">
+								<div>
+								<!--{if $forum['permission'] == 1}-->
+									{lang private_forum}
+								<!--{else}-->
+									<!--{if $forum['redirect']}-->
+										<a href="$forumurl" class="xi2">{lang url_link}</a>
+									<!--{elseif is_array($forum['lastpost'])}-->
+										<a href="forum.php?mod=redirect&tid=$forum[lastpost][tid]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($forum[lastpost][subject], 30)}--></a> <cite>$forum[lastpost][dateline] <!--{if $forum['lastpost']['author']}-->$forum['lastpost']['author']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+									<!--{else}-->
+										{lang never}
+									<!--{/if}-->
+								<!--{/if}-->
+								</div>
+							</td>
+						</tr>
+						<tr class="fl_row">
+						<!--{/if}-->
+						<!--{/loop}-->
+						$cat['endrows']
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!--{ad/intercat/bm a_c/$cat[fid]}-->
+		<!--{/loop}-->
+			<!--{if !empty($collectiondata['data'])}-->
+
+			<!--{eval $forumscount = count($collectiondata['data']);}-->
+			<!--{eval $forumcolumns = 4;}-->
+
+			<!--{eval $forumcolwidth = (floor(100 / $forumcolumns) - 0.1).'%';}-->
+
+			<div class="bm bmw {if $forumcolumns} flg{/if} cl">
+				<div class="bm_h cl">
+					<span class="o">
+						<img id="category_-2_img" src="{IMGDIR}/$collapse['collapseimg_-2']" title="{lang spread}" alt="{lang spread}" onclick="toggle_collapse('category_-2');" />
+					</span>
+					<h2><a href="forum.php?mod=collection">{lang recommend_collection}</a></h2>
+				</div>
+				<div id="category_-2" class="bm_c" style="{echo $collapse['category_-2']}">
+					<table cellspacing="0" cellpadding="0" class="fl_tb">
+						<tr>
+						<!--{eval $ctorderid = 0;}-->
+						<!--{loop $collectiondata['data'] $key $colletion}-->
+							<!--{if $ctorderid && ($ctorderid % $forumcolumns == 0)}-->
+								</tr>
+								<!--{if $ctorderid < $forumscount}-->
+									<tr class="fl_row">
+								<!--{/if}-->
+							<!--{/if}-->
+							<td class="fl_g"{if $forumcolwidth} width="$forumcolwidth"{/if}>
+								<div class="fl_icn_g">
+								<a href="forum.php?mod=collection&action=view&ctid={$colletion[ctid]}" target="_blank"><img src="{IMGDIR}/forum.gif" alt="$colletion[name]" /></a>
+								</div>
+								<dl>
+									<dt><a href="forum.php?mod=collection&action=view&ctid={$colletion[ctid]}">$colletion[name]</a></dt>
+									<dd><em>{lang forum_threads}: <!--{echo dnumber($colletion[threadnum])}--></em>, <em>{lang collection_commentnum}: <!--{echo dnumber($colletion[commentnum])}--></em></dd>
+									<dd>
+									<!--{if $colletion['lastpost']}-->
+										<!--{if $forumcolumns < 3}-->
+											<a href="forum.php?mod=redirect&tid=$colletion[lastpost]&goto=lastpost#lastpost" class="xi2"><!--{echo cutstr($colletion[lastsubject], 30)}--></a> <cite><!--{date($colletion[lastposttime])}--> <!--{if $colletion['lastposter']}-->$colletion['lastposter']<!--{else}-->$_G[setting][anonymoustext]<!--{/if}--></cite>
+										<!--{else}-->
+											<a href="forum.php?mod=redirect&tid=$colletion[lastpost]&goto=lastpost#lastpost">{lang forum_lastpost}: <!--{date($colletion[lastposttime])}--></a>
+										<!--{/if}-->
+									<!--{else}-->
+										{lang never}
+									<!--{/if}-->
+									</dd>
+									<!--{hook/index_datacollection_extra $colletion[ctid]}-->
+								</dl>
+							</td>
+							<!--{eval $ctorderid++;}-->
+
+						<!--{/loop}-->
+						<!--{if ($columnspad = $ctorderid % $forumcolumns) > 0}--><!--{echo str_repeat('<td class="fl_g"'.($forumcolwidth ? " width=\"$forumcolwidth\"" : '').'></td>', $forumcolumns - $columnspad);}--><!--{/if}-->
+						</tr>
+					</table>
+
+				</div>
+			</div>
+
+			<!--{/if}-->
+
+		</div>
+
+		<!--{hook/index_middle}-->
+		<div class="wp mtn">
+			<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+		</div>
+
+
+		<!--{if empty($gid) && ($_G['cache']['forumlinks'][0] || $_G['cache']['forumlinks'][1] || $_G['cache']['forumlinks'][2])}-->
+		<div class="bm lk">
+			<div id="category_lk" class="bm_c ptm">
+				<!--{if $_G['cache']['forumlinks'][0]}-->
+					<ul class="m mbn cl">$_G['cache']['forumlinks'][0]</ul>
+				<!--{/if}-->
+				<!--{if $_G['cache']['forumlinks'][1]}-->
+					<div class="mbn cl">
+						$_G['cache']['forumlinks'][1]
+					</div>
+				<!--{/if}-->
+				<!--{if $_G['cache']['forumlinks'][2]}-->
+					<ul class="x mbm cl">
+						$_G['cache']['forumlinks'][2]
+					</ul>
+				<!--{/if}-->
+			</div>
+		</div>
+		<!--{/if}-->
+
+		<!--{hook/index_bottom}-->
+	</div>
+		<div class="wp mtn">
+			<!--[diy=diy9]--><div id="diy9" class="area"></div><!--[/diy]-->
+		</div>
+		<!--{hook/index_middle}-->
+
+        
+		<div class="bm oll zbrCount" id="online">
+      		<div class="bm_h">          
+      			<p><strong>&raquo;&raquo;&nbsp;当前共<span class="xi1">$onlinenum</span>人在线，<span class="xi1">$membercount</span>位正在交流，<span class="xi1">$guestcount</span>正在聆听！Hi，你想说点什么？</strong></p>      
+      		</div>
+                                <dl id="onlinelist" class="bm_c">
+      			<dt class="ptm pbm"><img class="zbr_icon" src="$_G['style']['styleimgdir']/online.png">&nbsp;&nbsp;&nbsp;&nbsp;$_G[cache][onlinelist][legend]</dt>                                        <!--{if $detailstatus}-->
+                                                <dd class="ptm pbm">
+                                                <ul class="cl">
+                                                <!--{if $whosonline}-->
+                                                        <!--{loop $whosonline $key $online}-->
+                                                                <li title="{lang time}: $online[lastactivity]">
+                                                                <img src="{STATICURL}image/common/$online[icon]" alt="icon" />
+                                                                <!--{if $online['uid']}-->
+                                                                        <a href="home.php?mod=space&uid=$online[uid]">$online[username]</a>
+                                                                <!--{else}-->
+                                                                        $online[username]
+                                                                <!--{/if}-->
+                                                                </li>
+                                                        <!--{/loop}-->
+                                                <!--{else}-->
+                                                        <li style="width: auto">{lang online_only_guests}</li>
+                                                <!--{/if}-->
+                                                </ul>
+                                        </dd>
+                                        <!--{/if}-->
+                                </dl>      
+    	</div>
+  <div class="wp">
+		<!--[diy=diy10]--><div id="diy10" class="area"></div><!--[/diy]-->
+	</div>
+
+		<!--{hook/index_bottom}-->
+	</div>
+  <div class="wp">
+		<!--[diy=diy11]--><div id="diy11" class="area"></div><!--[/diy]-->
+	</div>
+	<!--{if $_G['setting']['forumallowside']}-->
+		<div id="sd" class="sd">
+			<!--{hook/index_side_top}-->
+			<div class="drag">
+				<!--[diy=diy12]--><div id="diy12" class="area"></div><!--[/diy]-->
+			</div>
+			<!--{hook/index_side_bottom}-->
+		</div>
+	<!--{/if}-->
+</div>
+<!--{if $_G['group']['radminid'] == 1}-->
+	<!--{eval helper_manyou::checkupdate();}-->
+<!--{/if}-->
+<!--{if empty($_G['setting']['disfixednv_forumindex']) }--><script>fixed_top_nv();</script><!--{/if}-->
+<!--{template common/footer}-->

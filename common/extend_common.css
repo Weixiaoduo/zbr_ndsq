@@ -1,0 +1,76 @@
+﻿/* 全局 */
+#ct { min-height: 10px; }
+
+body{ background:transparent url({STYLEIMGDIR}/zbr_bodybg.png) repeat-x  scroll 0 0;}
+a:hover {color:#ED5D00;}
+.a_mu{ border:0; background:none;}
+
+/* 顶部toptb */
+#zbr_toptb .right a:hover{ text-decoration:none;}
+#zbr_toptb .left a{ float:none;}
+#toptb { background: url("{STYLEIMGDIR}/zbr_topbg.png") transparent repeat-x scroll 0 0; position:relative; border:0; height:31px; line-height:30px; width: 100%; }
+#toptb .left { float:left; color:#666; }
+#toptb .right { float:right; color:#999; }
+.sqgj_menu{ margin:3px 0; background: #FFF; border: 1px solid #7DB5DE;}
+.sqgj_menu li{ display:inline}
+.sqgj_menu li a { position:relative; float:none !important; border-bottom:1px solid #EEEEEE; display:block; font-size: 12px; height:24px !important; line-height: 24px; padding:0 15px !important; white-space:nowrap; }
+.sqgj_menu li a:hover {background:#EAF8FD; color: #2295DB; font-weight: bold;}
+
+/* 头部hd */
+#hd{ margin-bottom:8px;  }
+#hd .wp{ background:transparent url({STYLEIMGDIR}/zbr_hdbg.jpg) no-repeat  scroll center top;  padding:0;}
+#hd h2{ padding:15px 0 0;}
+#hd .hdc{ height:115px; overflow:hidden; }
+#hd #um, #hd .fastlg{ padding-top:18px;}
+.zbr_hd #nv, .zbr_hd #nv .nv_l, .zbr_hd #nv .nv_r, .zbr_hd #nv li, .zbr_hd #nv li.a, .zbr_hd #nv li.a a, .zbr_hd #nv li a:hover, .zbr_hd #nv li.hover a, .zbr_hd #nv li.hover a:hover, .zbr_hd .p_pop li a:hover{ background:transparent url({STYLEIMGDIR}/zbr_mainnav.png) no-repeat scroll 0 0;}
+.zbr_hd #nv{ background-repeat:repeat-x; padding:0; overflow:hidden;}
+.zbr_hd #nv li.nv_l{ width:2px; height:33px; overflow:hidden; font-size:0; background-position:0 -40px;}
+.zbr_hd li#mn_portal{ margin-left:-3px;}
+.zbr_hd #nv .nv_r{ width:2px; height:33px; overflow:hidden; font-size:0; background-position:right -82px; float:right;}
+.zbr_hd #nv li, .zbr_hd #nv li.a{ background-position:right -160px;}
+.zbr_hd #nv li a{ width:84px; margin:0 2px; padding:0; display:block; text-align:center; text-decoration:none;}
+.zbr_hd #nv li a:hover, .zbr_hd #nv li.a a{ background-position:center -123px;}
+.zbr_hd #nv a{ line-height:33px !important;}
+.zbr_hd #nv a#qmenu{ line-height:24px !important;}
+.dzhid{ display:none !important;}
+.zbr_hd .p_pop{ padding:5px 0 0;}
+.zbr_hd .p_pop li a{ padding:3px 18px;}
+.zbr_hd .p_pop li a:hover{ background-position:0 -196px; background-repeat:repeat-x; color:#FFF;}
+.zbr_hd .h_pop{ min-width:60px;}
+
+.nav_bd { background: url({STYLEIMGDIR}/nav_bg01.png) no-repeat scroll 0 -24px transparent; height: 62px; margin: 0 auto; width:960px; overflow: hidden; }
+.nav_bd_ul { float: left; margin: 5px 0 0 7px;}
+.nav_bd_ul li { border-left: 1px dashed #CCCCCC; float: left; height: 25px; line-height: 25px; width: 94px; }
+.nav_bd_ul li.nav_spe{ border-left:0;}
+.nav_bd_ul li a { background: url({STYLEIMGDIR}/nav_bg03.png) no-repeat scroll 10px 9px transparent; color: #333333; display: block; font-size: 14px; height: 25px; padding: 0 13px 0 19px; text-decoration: none; width: 60px; }
+.nav_bd_ul li a:hover { background: url({STYLEIMGDIR}/nav_bg02.png) no-repeat scroll 5px center transparent; color: #333333; text-decoration: none; }
+
+/* 搜索 */
+#scbar { height: 36px; line-height: 36px; margin-bottom:8px; background-image:url({STYLEIMGDIR}/search.png); border:1px solid #EFEFEF;}
+#scbar_hot{ height:36px;}
+.scbar_txt_td, .scbar_type_td{ background-position:0 -97px;}
+.scbar_type_td{ background-position:0 -197px;}
+.scbar_btn_td{ background-position:8px -146px;}
+.scbar_icon_td{ background:none;}
+.scbar_icon_td span{ display:block; border-right:1px solid #cfdee3; font-size:0; height:30px;}
+#scbar_txt{ padding-left:5px;}
+#scbar form{ float:left;}
+#weather{float:right; padding:8px 5px 0 0; height:20px; line-height:20px; overflow:hidden;}
+
+.zbr_local #sc_type_w{ padding-right:2px;}
+.zbr_local #sc_type{ height:19px !important;}
+.zbr_local .p_pop a{ padding:0 3px; line-height:26px;}
+.zbr_local .zbr_cur{ position:relative; top:-3px;}
+
+/* 底部footer */
+.foot{ width:960px; font:12px/1.5 Tahoma,Helvetica,SimSun,sans-serif,Hei clear:both; padding-top:8px; position:relative; margin:5px auto; border-top:1px solid #D5D5D5; clear:both;}
+.foot p{ text-align:center; color:#555; height:22px; line-height:22px;}
+.foot p a{ color:#555;}
+.foot p.foot_link a{ padding:0 10px;}
+.foot p a.red{ color:red;}
+.foot .foot_pr{position:absolute; bottom:0px; right:0px;}
+.foot .foot_pr a{ padding-left:10px;}
+.foot .foot_top{ position:absolute; right:0; top:0px;}
+.foot_pic{ height: 48px; width:756px; margin: 5px auto 0; text-align: center;}
+.foot_pic li{border: 1px solid #CCC; float:left; height: 48px; margin: 0 3px; width: 118px; display:inline; }
+#ft{ padding:0; padding-top:8px;}

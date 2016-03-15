@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Style]]></item>
+	<item id="Version"><![CDATA[X3,X3.1,X3.2]]></item>
+	<item id="Time"><![CDATA[2012-11-30 07:43]]></item>
+	<item id="From"><![CDATA[Þ±Ïþ¶äÍøÂç¹¤×÷ÊÒ (http://www.weixiaoduo.com/)]]></item>
+	<item id="Data">
+		<item id="styleid"><![CDATA[13]]></item>
+		<item id="name"><![CDATA[Õò°ÍÃÅ»§À¶É«·ç¸ñ]]></item>
+		<item id="available"><![CDATA[1]]></item>
+		<item id="templateid"><![CDATA[11]]></item>
+		<item id="extstyle"><![CDATA[]]></item>
+		<item id="tplname"><![CDATA[Þ±Ïþ¶äÍøÂç¹¤×÷ÊÒ³öÆ·]]></item>
+		<item id="directory"><![CDATA[./template/zbr_ndsq]]></item>
+		<item id="copyright"><![CDATA[Þ±Ïþ¶äÍøÂç¹¤×÷ÊÒ (http://www.weixiaoduo.com/)]]></item>
+		<item id="style">
+			<item id="imgdir"><![CDATA[static/image/common/]]></item>
+			<item id="styleimgdir"><![CDATA[template/zbr_ndsq/style]]></item>
+			<item id="menuhoverbgcolor"><![CDATA[#005AB4 nv_a.png no-repeat 50% -33px]]></item>
+			<item id="smfont"><![CDATA[Arial]]></item>
+			<item id="threadtitlefont"><![CDATA[Tahoma,'Microsoft Yahei','Simsun']]></item>
+			<item id="threadtitlefontsize"><![CDATA[14px]]></item>
+			<item id="smfontsize"><![CDATA[0.83em]]></item>
+			<item id="tabletext"><![CDATA[#333]]></item>
+			<item id="midtext"><![CDATA[#444]]></item>
+			<item id="lighttext"><![CDATA[#555]]></item>
+			<item id="link"><![CDATA[#444]]></item>
+			<item id="highlightlink"><![CDATA[#0B81BF]]></item>
+			<item id="noticetext"><![CDATA[#f60]]></item>
+			<item id="bgcolor"><![CDATA[#FFFFFF titlebg.png repeat-x 0 0]]></item>
+			<item id="msgfontsize"><![CDATA[14px]]></item>
+			<item id="sidebgcolor"><![CDATA[#FFFFFF]]></item>
+			<item id="headerborder"><![CDATA[0]]></item>
+			<item id="headerbgcolor"><![CDATA[]]></item>
+			<item id="inputborderdarkcolor"><![CDATA[#707070]]></item>
+			<item id="stypeid"><![CDATA[4]]></item>
+			<item id="inputbg"><![CDATA[#FFF]]></item>
+			<item id="commonbg"><![CDATA[#F2F2F2]]></item>
+			<item id="commonborder"><![CDATA[#e3e3e3]]></item>
+			<item id="specialborder"><![CDATA[#ddd]]></item>
+			<item id="specialbg"><![CDATA[#EFEFEF]]></item>
+			<item id="dropmenuborder"><![CDATA[#DDD]]></item>
+			<item id="floatmaskbgcolor"><![CDATA[#000]]></item>
+			<item id="dropmenubgcolor"><![CDATA[#FEFEFE]]></item>
+			<item id="floatbgcolor"><![CDATA[#FFF]]></item>
+			<item id="lightlink"><![CDATA[#FFF]]></item>
+			<item id="titlebgcolor"><![CDATA[#CCCCCC titlebg.png repeat-x 0 0]]></item>
+			<item id="inputborder"><![CDATA[#CECECE]]></item>
+			<item id="contentseparate"><![CDATA[#CCCCCC]]></item>
+			<item id="contentwidth"><![CDATA[630px]]></item>
+			<item id="wrapbordercolor"><![CDATA[#CCCCCC]]></item>
+			<item id="wrapbg"><![CDATA[#FFF]]></item>
+			<item id="menuhovertext"><![CDATA[#FFF]]></item>
+			<item id="menutext"><![CDATA[#FFF]]></item>
+			<item id="menubgcolor"><![CDATA[#2B7ACD nv.png no-repeat 0 0]]></item>
+			<item id="boardimg"><![CDATA[logo.gif]]></item>
+			<item id="available"><![CDATA[]]></item>
+			<item id="headertext"><![CDATA[#444]]></item>
+			<item id="footertext"><![CDATA[#666]]></item>
+			<item id="fontsize"><![CDATA[12px/1.5]]></item>
+			<item id="font"><![CDATA[Tahoma,'Microsoft Yahei','Simsun']]></item>
+		</item>
+		<item id="version"><![CDATA[X3,X3.1,X3.2]]></item>
+	</item>
+</root>
